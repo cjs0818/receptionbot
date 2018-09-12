@@ -4,6 +4,7 @@ DOCKER=docker
 
 $DOCKER run -it --rm \
    --name $NAME_ID \
+   --device /dev/snd \
    -p 22345:5000 \
    -v $(pwd):/python-docker $IMAGE_ID \
    /bin/bash
