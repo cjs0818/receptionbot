@@ -1,0 +1,9 @@
+2018-09-12 22:17:01,532 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2018-09-12 22:17:01,533 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application_default']
+2018-09-12 22:17:01,534 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application-default', u'print_access_token']
+2018-09-12 22:17:01,535 DEBUG    root            Running [gcloud.auth.application-default.print-access-token] with arguments: []
+2018-09-12 22:17:01,538 INFO     oauth2client.client Refreshing access_token
+2018-09-12 22:17:01,865 INFO     root            Display format: "value(access_token)"
+2018-09-12 22:17:01,865 INFO     ___FILE_ONLY___ ya29.GlsWBkGmyI6zeSOGAFDfZAkHHcYjODgLoap82OKhJyyRHui95jCVxw4I18TtoADhKBe-3AqDGjB4HAQXA-jhT6B7PyM_zlTnBwFw-HByAYdoP8FR9TYyEfe3TLSN
+
+2018-09-12 22:17:01,866 DEBUG    root            SDK update checks are disabled.

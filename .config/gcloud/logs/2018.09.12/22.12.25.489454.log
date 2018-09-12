@@ -1,0 +1,9 @@
+2018-09-12 22:12:25,490 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam']
+2018-09-12 22:12:25,491 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service_accounts']
+2018-09-12 22:12:25,492 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service-accounts', u'keys']
+2018-09-12 22:12:25,493 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service-accounts', u'keys', u'create']
+2018-09-12 22:12:25,495 DEBUG    root            Running [gcloud.iam.service-accounts.keys.create] with arguments: [--iam-account: "jschoi@chatbot-215901.iam.gserviceaccount.com", OUTPUT-FILE: "/home/jschoi/jschoi_gcloud_service_accounts_key.json"]
+2018-09-12 22:12:27,914 INFO     ___FILE_ONLY___ created key [92ef4da885ed0decb751b7bc2f4507cb60faf01e] of type [json] as [/home/jschoi/jschoi_gcloud_service_accounts_key.json] for [jschoi@chatbot-215901.iam.gserviceaccount.com]
+
+2018-09-12 22:12:27,915 INFO     root            Display format: "default"
+2018-09-12 22:12:27,915 DEBUG    root            SDK update checks are disabled.
