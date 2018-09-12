@@ -602,8 +602,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 1
-    tts_enable = 1
+    stt_enable = 0
+    tts_enable = 0
 
     speech_ui(stt_enable, tts_enable)
     #web_request()
