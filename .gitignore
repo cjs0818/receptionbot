@@ -14,6 +14,7 @@ __pycache__/
 env/
 venv/
 venv3/
+venv_linux/
 
 # temporary file
 tmp.mp3
