@@ -7,6 +7,10 @@ import csv
 import gspeech
 import time
 
+import os
+import sys
+import urllib.request
+
 
 #------------------
 # if OSX -> use playsound
@@ -50,7 +54,9 @@ class NaverTTS():
         self.speaker = speakers[speaker]
         self.speed=str(speed)
     def play(self, txt):
+
         encText = urllib.parse.quote(txt)
+
         data = "speaker=" + self.speaker + "&speed=" + self.speed + "&text=" + encText;
 
         request = urllib.request.Request(url)
