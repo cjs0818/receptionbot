@@ -15,8 +15,8 @@ import urllib.request
 import subprocess
 os_name = subprocess.check_output('uname', shell=True)
 os_name = str(os_name)
-if(os_name.find('Darwin')):
-	from playsound import playsound  # For OSX
+if(os_name.find('Darwin') >= 0):
+    from playsound import playsound  # For OSX
 #------------------
 
 client_id = "eyrxb9rg98"
@@ -60,7 +60,7 @@ class NaverTTS():
                 f.write(response_body)
 
             #외부 프로그램 사용 playsound or vlc
-            if(os_name.find('Darwin')):
+            if(os_name.find('Darwin') >= 0):
                 playsound(tmpPlayPath)  # For OSX
             else:
                 os.system('cvlc ' + tmpPlayPath + ' --play-and-exit') # For Linux
