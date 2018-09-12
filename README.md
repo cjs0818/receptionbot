@@ -69,7 +69,7 @@ $ vi sync-request.json
   "config":{
     "encoding": "FLAC",
     "sampleRateHertz": 16000,
-    "language": "en-US"
+    "languageCode": "en-US"
   },
   "audio": {
     "uri": "gs://cloud-samples-tests/speech/brooklyn.flac"
