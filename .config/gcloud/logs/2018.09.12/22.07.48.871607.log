@@ -1,0 +1,118 @@
+2018-09-12 22:07:48,874 DEBUG    root            Loaded Command Group: [u'gcloud', u'init']
+2018-09-12 22:07:48,876 DEBUG    root            Running [gcloud.init] with arguments: []
+2018-09-12 22:07:48,876 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2018-09-12 22:07:48,877 INFO     ___FILE_ONLY___ Your current configuration has been set to: [default]
+
+
+2018-09-12 22:07:48,877 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2018-09-12 22:07:48,877 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2018-09-12 22:07:48,877 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2018-09-12 22:07:48,878 INFO     ___FILE_ONLY___ Checking network connection...
+2018-09-12 22:07:56,888 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2018-09-12 22:07:56,888 INFO     ___FILE_ONLY___ Network diagnostic (1/1 checks) passed.
+
+
+2018-09-12 22:08:04,761 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2018-09-12 22:08:04,763 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'login']
+2018-09-12 22:08:04,764 INFO     root            Executing: [gcloud auth login --force --brief]
+2018-09-12 22:08:04,766 DEBUG    root            Running [gcloud.auth.login] with arguments: [--brief: "True", --force: "True"]
+2018-09-12 22:08:04,787 INFO     ___FILE_ONLY___ Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&prompt=select_account&response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&access_type=offline
+
+
+
+2018-09-12 22:08:26,890 INFO     oauth2client.client Successfully retrieved access token
+2018-09-12 22:08:26,905 INFO     root            Display format: "none"
+2018-09-12 22:08:26,907 DEBUG    root            SDK update checks are disabled.
+2018-09-12 22:08:26,908 INFO     ___FILE_ONLY___ You are logged in as: [pristine70@gmail.com].
+
+
+2018-09-12 22:08:33,200 INFO     ___FILE_ONLY___ Your current project has been set to: [chatbot-215901].
+
+
+2018-09-12 22:08:33,220 DEBUG    root            Loaded Command Group: [u'gcloud', u'compute']
+2018-09-12 22:08:33,222 DEBUG    root            Loaded Command Group: [u'gcloud', u'compute', u'project_info']
+2018-09-12 22:08:33,226 DEBUG    root            Loaded Command Group: [u'gcloud', u'compute', u'project-info', u'describe']
+2018-09-12 22:08:33,227 INFO     root            Executing: [gcloud compute project-info describe --quiet]
+2018-09-12 22:08:33,229 DEBUG    root            Running [gcloud.compute.project-info.describe] with arguments: [--no-user-output-enabled: "false", --quiet: "True", --verbosity: "none"]
+2018-09-12 22:08:36,315 DEBUG    root            (gcloud.compute.project-info.describe) HTTPError 403: Access Not Configured. Compute Engine API has not been used in project 998578074613 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=998578074613 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Traceback (most recent call last):
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 839, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 770, in Run
+    resources = command_instance.Run(args)
+  File "/usr/lib/google-cloud-sdk/lib/surface/compute/project_info/describe.py", line 39, in Run
+    project=project_ref.projectId))])[0]
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/client_adapter.py", line 91, in MakeRequests
+    progress_tracker=progress_tracker,
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/request_helper.py", line 253, in MakeRequests
+    requests=requests, http=http, batch_url=batch_url)
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/batch_helper.py", line 106, in MakeRequests
+    batch_request_callback=batch_checker.BatchCheck)
+  File "/usr/bin/../lib/google-cloud-sdk/lib/third_party/apitools/base/py/batch.py", line 222, in Execute
+    batch_http_request.Execute(http)
+  File "/usr/bin/../lib/google-cloud-sdk/lib/third_party/apitools/base/py/batch.py", line 494, in Execute
+    self.__callback(response, exception)
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/batch_helper.py", line 73, in BatchCheck
+    is_batch_request=True)
+  File "/usr/lib/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 240, in PromptToEnableApi
+    raise exception
+HttpException: HTTPError 403: Access Not Configured. Compute Engine API has not been used in project 998578074613 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=998578074613 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+2018-09-12 22:08:36,316 ERROR    root            (gcloud.compute.project-info.describe) HTTPError 403: Access Not Configured. Compute Engine API has not been used in project 998578074613 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=998578074613 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+2018-09-12 22:08:36,316 INFO     root            [compute project-info describe --quiet] has failed
+
+2018-09-12 22:08:36,316 INFO     ___FILE_ONLY___ Not setting default zone/region (this feature makes it easier to use
+[gcloud compute] by setting an appropriate default value for the
+--zone and --region flag).
+See https://cloud.google.com/compute/docs/gcloud-compute section on how to set
+default compute region and zone manually. If you would like [gcloud init] to be
+able to do this for you the next time you run it, make sure the
+Compute Engine API is enabled for your project on the
+https://console.developers.google.com/apis page.
+
+
+2018-09-12 22:08:36,317 DEBUG    root            Executing command: [u'/usr/lib/google-cloud-sdk/bin/gsutil', u'config', u'-n', u'-o', u'/home/jschoi/.boto']
+2018-09-12 22:08:37,279 DEBUG    ___FILE_ONLY___ 
+2018-09-12 22:08:37,279 DEBUG    ___FILE_ONLY___ This command will create a boto config file at /home/jschoi/.boto
+containing your credentials, based on your responses to the following
+questions.
+
+Boto config file "/home/jschoi/.boto" created. If you need to use a
+proxy to access the Internet please see the instructions in that file.
+
+2018-09-12 22:08:37,279 INFO     ___FILE_ONLY___ Created a default .boto configuration file at [/home/jschoi/.boto]. See this file and
+[https://cloud.google.com/storage/docs/gsutil/commands/config] for more
+information about configuring Google Cloud Storage.
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ Your Google Cloud SDK is configured and ready to use!
+
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ * Commands that require authentication will use pristine70@gmail.com by default
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ * Commands will reference project `chatbot-215901` by default
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ Run `gcloud help config` to learn how to change individual settings
+
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ Run `gcloud topic configurations` to learn more.
+
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ Some things to try next:
+
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ * Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
+
+2018-09-12 22:08:37,280 INFO     ___FILE_ONLY___ * Run `gcloud topic -h` to learn about advanced features of the SDK like arg files and output formatting
+
+2018-09-12 22:08:37,281 INFO     root            Display format: "default"
+2018-09-12 22:08:37,282 DEBUG    root            SDK update checks are disabled.

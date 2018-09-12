@@ -1,0 +1,5 @@
+2018-09-12 22:09:25,933 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam']
+2018-09-12 22:09:25,934 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service_accounts']
+2018-09-12 22:09:25,935 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service-accounts', u'keys']
+2018-09-12 22:09:25,936 DEBUG    root            Loaded Command Group: [u'gcloud', u'iam', u'service-accounts', u'keys', u'create']
+2018-09-12 22:09:25,938 ERROR    root            (gcloud.iam.service-accounts.keys.create) unrecognized arguments: -/jschoi_gcloud_service_accounts_key.json
