@@ -5,7 +5,8 @@ DOCKER=docker
 $DOCKER run -it --rm \
    --name $NAME_ID \
    -p 22345:5000 \
-   -v $(pwd):/python-docker $IMAGE_ID
+   -v $(pwd):/python-docker $IMAGE_ID \
+   /bin/bash
 
 #$DOCKER run -it --rm \
 #   --name $NAME_ID \
