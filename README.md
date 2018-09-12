@@ -58,7 +58,7 @@ $ sudo gcloud init
 #------------------------------------------------------
 ```
 ```
-$ sudo gcloud iam service-accounts keys create -/jschoi_gcloud_service_accounts_key.json --iam-account jschoi@chatbot-215901.iam.gserviceaccount.com
+$ sudo gcloud iam service-accounts keys create ~/jschoi_gcloud_service_accounts_key.json --iam-account jschoi@chatbot-215901.iam.gserviceaccount.com
 ```
 
 - 테스트를 위해 sync-request.json 파일을 만든다
