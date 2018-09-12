@@ -597,6 +597,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
                 pass
 
 
+            time.sleep(0.01)
             # -------------------------------
             # STT 재시작
             if stt_enable == 1:
