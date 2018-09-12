@@ -5,11 +5,19 @@ import os
 import sys
 import urllib.request
 
+#------------------
+# if OSX -> use playsound
+# else  -> use cvlc
+
 # Install
 #       pip3 install pyobjc
 #       pip3 install playsound
-if(os.system('uname') == "Darwin"):
+import subprocess
+os_name = subprocess.check_output('uname', shell=True)
+os_name = str(os_name)
+if(os_name.find('Darwin')):
 	from playsound import playsound  # For OSX
+#------------------
 
 client_id = "eyrxb9rg98"
 client_secret = "DK9FvMgRTGBYu1IYLYMpUCniGoku8iaQ5e7bHi1D"
@@ -51,8 +59,8 @@ class NaverTTS():
             with open(tmpPlayPath, 'wb') as f:
                 f.write(response_body)
 
-            #외부 프로그램 사용 vlc
-            if(os.system('uname') == "Darwin"):
+            #외부 프로그램 사용 playsound or vlc
+            if(os_name.find('Darwin')):
                 playsound(tmpPlayPath)  # For OSX
             else:
                 os.system('cvlc ' + tmpPlayPath + ' --play-and-exit') # For Linux
