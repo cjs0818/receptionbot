@@ -18,6 +18,7 @@ RUN apt-get -qq -y update
 RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-setuptools python3-wheel gcc
 RUN apt-get install -y git curl
 RUN apt-get install -y python3-flask
+RUN apt-get install -y portaudio19-dev
 
 # Install Google Cloud SDK
 #RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
