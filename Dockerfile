@@ -9,13 +9,21 @@ ENV PATH /usr/local/bin:$PATH
 ENV LANG C.UTF-8
 
 # 기본 패키지들 설치 및 Python 3.6 설치
-RUN apt-get update
+#RUN apt-get update
+RUN apt-get -qq -y update
 RUN apt-get install -y software-properties-common
+
 RUN add-apt-repository -y ppa:fkrull/deadsnakes
-RUN apt-get update
+RUN apt-get -qq -y update
 RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-setuptools python3-wheel gcc
-RUN apt-get install -y git
+RUN apt-get install -y git curl
 RUN apt-get install -y python3-flask
+
+# Install Google Cloud SDK
+#RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
+#    echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
+#    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
+#    apt-get update -y && apt-get install google-cloud-sdk -y
 
 # pip 업그레이드
 RUN python3.6 -m pip install pip --upgrade
