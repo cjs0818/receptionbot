@@ -1,0 +1,9 @@
+﻿Flask
+requests
+pillow
+gunicorn
+google-cloud-speech==0.35.0
+vlc
+pyaudio
+pyobjc
+playsound

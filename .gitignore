@@ -1,0 +1,9 @@
+# PyCharm files
+.idea/
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
