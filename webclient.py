@@ -8,11 +8,20 @@ import gspeech
 import time
 
 
-import urllib.request
+#------------------
+# if OSX -> use playsound
+# else  -> use cvlc
+
 # Install
-#     pip3 install pyobjc
-#     pip3 install playsound
-from playsound import playsound  #  pip3 install pyobjc, playsound
+#       pip3 install pyobjc
+#       pip3 install playsound
+import subprocess
+os_name = subprocess.check_output('uname', shell=True)
+os_name = str(os_name)
+if(os_name.find('Darwin') >= 0):
+    from playsound import playsound  # For OSX
+#------------------
+
 
 client_id = "eyrxb9rg98"
 client_secret = "DK9FvMgRTGBYu1IYLYMpUCniGoku8iaQ5e7bHi1D"
@@ -54,9 +63,11 @@ class NaverTTS():
             with open(tmpPlayPath, 'wb') as f:
                 f.write(response_body)
 
-            #외부 프로그램 사용 vlc
-            #os.system('cvlc ' + tmpPlayPath + ' --play-and-exit')   # Ubuntu: sudo apt-get install vlc browser-plugin-vlc
-            playsound(tmpPlayPath)  # OSX: pip3 install pyobjc, playsound
+            #외부 프로그램 사용 playsound or vlc
+            if(os_name.find('Darwin') >= 0):
+               playsound(tmpPlayPath)  # OSX: pip3 install pyobjc, playsound
+            else:
+               os.system('cvlc ' + tmpPlayPath + ' --play-and-exit')   # Ubuntu: sudo apt-get install vlc browser-plugin-vlc
 
             #라즈베리파이
             #os.system('omxplayer ' + tmpPlayPath)
