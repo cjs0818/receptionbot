@@ -7,3 +7,5 @@
 # Distribution / packaging
 .Python
 env/
+venv/
+venv3/
