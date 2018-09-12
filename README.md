@@ -6,6 +6,12 @@ source speech/bin/activate  (To stop: type 'deactivate')
 $ git clone https://github.com/cjs0818/receptionbot.git
 $ cd receptionbot
 ```
+
+In OSX, portaudio needs to be installed for PyAudio like
+```
+$ brew install portaudio
+```
+
 ### python3 virtualenv
 ```
 $ virtual env -p python3 venv3
