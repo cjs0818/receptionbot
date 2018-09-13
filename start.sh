@@ -6,7 +6,7 @@ $DOCKER run -it --rm \
    --name $NAME_ID \
    --device /dev/snd \
    -p 22345:5000 \
-   -v $(pwd):/python-docker $IMAGE_ID \
+   -v $(pwd):/receptionbot $IMAGE_ID \
    /bin/bash
 
 #$DOCKER run -it --rm \
