@@ -473,8 +473,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
     else:
         # 음성인식 아닌 경우, 테스트 query에 대해 문장 단위로 테스트
         query = ["안녕",
-                 "사람을 찾으러 왔어요",
-                 "최종석 박사님이요",
+                 "사람이요",
+                 "홍길동 박사님이요",
                  "아나스타샤를 찾으러 왔어요",
                  "끝내자"
                  ]
@@ -537,7 +537,20 @@ def speech_ui(stt_enable=1, tts_enable=1):
 
 
             try:
-                name = res['responseSet']['result']['parameters']['person_to_visit']   # <- danbee json 포맷 분석 결과
+                name = res['responseSet']['result']['parameters']['sysany']
+            except Exception as e:
+                pass
+
+
+            try:
+                name = res['responseSet']['result']['parameters']['person_to_visit']
+            except Exception as e:
+                pass
+
+
+
+            try:
+                #name = res['responseSet']['result']['parameters']['person_to_visit']   # <- danbee json 포맷 분석 결과
                 # ------------------------
                 # 최종석 박사 -> 최종석
                 # 최종석 -> 최종석
@@ -620,8 +633,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 1
-    tts_enable = 1
+    stt_enable = 0
+    tts_enable = 0
 
     speech_ui(stt_enable, tts_enable)
     #web_request()
