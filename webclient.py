@@ -122,6 +122,7 @@ def get_answer_danbee(text, user_key):
         "Content-Type": "application/json;charset=UTF-8"
     }
     danbee_chatflow_url = 'https://danbee.ai/chatflow/engine.do'
+
     res = requests.post(danbee_chatflow_url,
                         data=json.dumps(data_send),
                         headers=data_header)
@@ -266,8 +267,8 @@ def get_datatbase(kind_of_guide):
                 dict.update({row[0]: dict_info})
                 # print("dict_name = ", dict_name)
 
-    json_data = json.dumps(dict, indent=4, ensure_ascii=False)
-    print(json_data)
+    #json_data = json.dumps(dict, indent=4, ensure_ascii=False)
+    #print(json_data)
 
 
 
@@ -474,8 +475,10 @@ def speech_ui(stt_enable=1, tts_enable=1):
         # 음성인식 아닌 경우, 테스트 query에 대해 문장 단위로 테스트
         query = ["안녕",
                  "사람이요",
-                 "홍길동 박사님이요",
+                 "최종석 박사님이요",
                  "아나스타샤를 찾으러 왔어요",
+                 "홍길동님을 찾으러 왔어요",
+                 "여진구 박사님이요",
                  "끝내자"
                  ]
         q_count = len(query)
@@ -537,16 +540,19 @@ def speech_ui(stt_enable=1, tts_enable=1):
 
 
             try:
-                name = res['responseSet']['result']['parameters']['sysany']
+                name1 = res['responseSet']['result']['parameters']['person_to_visit']
             except Exception as e:
                 pass
-
 
             try:
-                name = res['responseSet']['result']['parameters']['person_to_visit']
+                name2 = res['responseSet']['result']['parameters']['sysany']
             except Exception as e:
                 pass
 
+            if(len(name1)>0):
+                name = name1
+            elif(len(name2)>0):
+                name = name2
 
 
             try:
