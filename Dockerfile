@@ -1,3 +1,5 @@
+# docker pull pristine70/receptionbot
+
 # 베이스 이미지로 ubuntu:16.04 사용 
 FROM ubuntu:16.04
 
