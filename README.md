@@ -194,6 +194,26 @@ $ python3 install -r requirements.txt   # OSX에 맞게 선택 OSX: requirements
 $ python3 webclient.py
 ```
 
+_ _ _
+
+### Test submodule
+
+#### Danbee.ai <-> Basic user client
+ - Danbee 사이트 회원 가입 [https://danbee.ai](https://danbee.ai)
+#### 음성합성
+
+ - 기본 파일
+  ```
+   tts/naver_tts.py
+  ```
+ - 실행방법
+  ```
+  $ cd tts
+  $ python3 naver_tts.py
+
+```
+#### 음성인식
+
 
 ## Architectrue
 

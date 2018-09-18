@@ -2,12 +2,17 @@
 
 # 네이버 음성합성 Open API 예제
 import os
-import sys
 import urllib.request
 
 #------------------
-# if OSX -> use playsound
-# else  -> use cvlc
+# Sound player
+#
+#    Linux  -> use cvlc :
+#       sudo apt-get install vlc
+#    OSX -> use playsound :
+#       pip3 install pyobjc
+#       pip3 install playsound
+
 
 # Install
 #       pip3 install pyobjc
