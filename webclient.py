@@ -151,7 +151,7 @@ def get_answer_danbee(text, user_key):
     print_kor(sentence)
 
 
-    print_kor(data_receive)
+    #print_kor(data_receive)
 
     return data_receive
 
@@ -478,7 +478,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
                  "최종석 박사님이요",
                  "아나스타샤를 찾으러 왔어요",
                  "홍길동님을 찾으러 왔어요",
-                 "여진구 박사님이요",
+                 #"여진구 박사님이요",
                  "끝내자"
                  ]
         q_count = len(query)
@@ -639,8 +639,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 0
-    tts_enable = 0
+    stt_enable = 1
+    tts_enable = 1
 
     speech_ui(stt_enable, tts_enable)
     #web_request()
