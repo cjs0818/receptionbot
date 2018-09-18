@@ -11,10 +11,19 @@ import os
 import sys
 import urllib.request
 
+# Custom module
+from tts.naver_tts import NaverTTS  # tts
+
 
 #------------------
-# if OSX -> use playsound
-# else  -> use cvlc
+# Sound player
+#
+#    Linux  -> use cvlc :
+#       sudo apt-get install vlc
+#    OSX -> use playsound :
+#       pip3 install pyobjc
+#       pip3 install playsound
+
 
 # Install
 #       pip3 install pyobjc
@@ -25,60 +34,6 @@ os_name = str(os_name)
 if(os_name.find('Darwin') >= 0):
     from playsound import playsound  # For OSX
 #------------------
-
-
-client_id = "eyrxb9rg98"
-client_secret = "DK9FvMgRTGBYu1IYLYMpUCniGoku8iaQ5e7bHi1D"
-
-
-url = "https://naveropenapi.apigw.ntruss.com/voice/v1/tts"
-
-speakers = [
-    'mijin',     #한국어 여성
-    'jinho',     #한국어 남성
-    'clara',     #영어 여성
-    'matt',      #영어 남성
-    'yuri',      #일본어 여성
-    'shinji',    #일본어 남성
-    'meimei',    #중국어 여성
-    'liangliang',#중국어 남성
-    'jose',      #스페인어 남성
-    'carmen'     #스페인어 여성
-    ]
-
-
-tmpPlayPath = './tmp.mp3'
-
-class NaverTTS():
-    def __init__(self, speaker=0, speed=0):
-        self.speaker = speakers[speaker]
-        self.speed=str(speed)
-    def play(self, txt):
-
-        encText = urllib.parse.quote(txt)
-
-        data = "speaker=" + self.speaker + "&speed=" + self.speed + "&text=" + encText;
-
-        request = urllib.request.Request(url)
-        request.add_header("X-NCP-APIGW-API-KEY-ID",client_id)
-        request.add_header("X-NCP-APIGW-API-KEY",client_secret)
-        response = urllib.request.urlopen(request, data=data.encode('utf-8'))
-        rescode = response.getcode()
-        if(rescode==200):
-            response_body = response.read()
-            with open(tmpPlayPath, 'wb') as f:
-                f.write(response_body)
-
-            #외부 프로그램 사용 playsound or vlc
-            if(os_name.find('Darwin') >= 0):
-               playsound(tmpPlayPath)  # OSX: pip3 install pyobjc, playsound
-            else:
-               os.system('cvlc ' + tmpPlayPath + ' --play-and-exit')   # Ubuntu: sudo apt-get install vlc browser-plugin-vlc
-
-            #라즈베리파이
-            #os.system('omxplayer ' + tmpPlayPath)
-        else:
-            print("Error Code:" + rescode)
 
 
 def print_kor(text):
@@ -94,8 +49,8 @@ def event_api(event, user_key):
     data_header = {
         "Content-Type": "application/json;charset=UTF-8"
     }
-    url = "https://danbee.ai/chatflow/ce8c1f78-fcbe-45a4-bd02-253ba2caab5f/eventFlow.do"
-    res = requests.post(url,
+    event_url = "https://danbee.ai/chatflow/54ae138f-fa8f-404f-8975-8ac6a3c45c35/eventFlow.do"
+    res = requests.post(event_url,
                         data=json.dumps(data_send),
                         headers=data_header)
     data_receive = res.json()
@@ -271,75 +226,6 @@ def get_datatbase(kind_of_guide):
     #print(json_data)
 
 
-
-
-    '''
-   with open(filename, 'r', encoding='UTF-8-sig') as f:
-        csv_data = csv.reader(f, delimiter=',')
-        print("-------------")
-        dict = {}
-        row_cnt = 0
-        for row in csv_data:
-            row_cnt = row_cnt + 1
-            dict_name = {}
-            if row_cnt == 1:
-                key = row
-            else:
-                for i in range(0, len(row), 1):
-                    if i == 0:
-                        dict_name.update({key[i]: row[i]})
-                        # print(dict_name)
-                        dict_info = {}
-                    else:
-                        dict_info.update({key[i]: row[i]})
-                        # print(dict_info)
-                dict_name.update({'information': dict_info})
-                # print("dict_name = ", dict_name)
-                dict[row_cnt - 2] = dict_name
-                # print("dict = ", dict)
-        # print(dict)
-
-    json_data = json.dumps(dict, indent=4, ensure_ascii=False)
-    print(json_data)
-
-
-
-    # with open으로 하면 close를 하지 않아도 된다.
-    with open(filename, 'r', encoding='UTF-8-sig') as f:
-        csv_data = csv.reader(f, delimiter=',')
-        print("-------------")
-        json_str = "{ "
-        row_cnt = 0
-        for row in csv_data:
-            row_cnt = row_cnt + 1
-            if row_cnt == 1:
-                key = row
-            else:
-                for i in range(0,len(row),1):
-                    if i == 0:
-                        json_str = json_str + '{ \'' + key[i] + '\': '
-                        json_str = json_str + '\'' + row[i] + '\', '
-                        json_str = json_str + '\'information\': { '
-                    elif i<len(row)-1:
-                        json_str = json_str + '\'' + key[i] + '\': '
-                        json_str = json_str + '\'' + row[i] + '\', '
-                    elif i==len(row)-1:
-                        json_str = json_str + '\'' + key[i] + '\': '
-                        json_str = json_str + '\'' + row[i] + '\' } }, '
-
-            #print(', '.join(row))
-            #print(json_str)
-            #print("row: ", row)
-
-        json_str_final = json_str[0:len(json_str)-2]
-        json_str_final = json_str_final + ' }'
-
-    #print(json_str_final)
-    json_data = json.dumps(json_str_final, indent=4, ensure_ascii=False)
-    print(json_data)
-    '''
-
-
     return dict
 
 
@@ -463,7 +349,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
 
     # --------------------------------
     # Create NaverTTS Class
-    tts = NaverTTS(0,-1)
+    tts = NaverTTS(0,-1)    # Create a NaverTTS() class from tts/naver_tts.py
     #tts.play("안녕하십니까?")
 
 
@@ -639,8 +525,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 0
-    tts_enable = 0
+    stt_enable = 1  # 0: Disable speech recognition (STT), 1: Enable it
+    tts_enable = 1  # 0: Disable speech synthesis (TTS),   1: Enable it
 
     speech_ui(stt_enable, tts_enable)
     #web_request()
