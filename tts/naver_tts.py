@@ -12,11 +12,8 @@ import urllib.request
 #    OSX -> use playsound :
 #       pip3 install pyobjc
 #       pip3 install playsound
-
-
-# Install
-#       pip3 install pyobjc
-#       pip3 install playsound
+#
+#
 import subprocess
 os_name = subprocess.check_output('uname', shell=True)
 os_name = str(os_name)
@@ -76,33 +73,6 @@ class NaverTTS():
         else:
             print("Error Code:" + rescode)
 
-    def play_proc(self, txt):
-        proc = os.getpid()
-
-        encText = urllib.parse.quote(txt)
-        data = "speaker=" + self.speaker + "&speed=" + self.speed + "&text=" + encText;
-
-        request = urllib.request.Request(url)
-        request.add_header("X-NCP-APIGW-API-KEY-ID",client_id)
-        request.add_header("X-NCP-APIGW-API-KEY",client_secret)
-        response = urllib.request.urlopen(request, data=data.encode('utf-8'))
-        rescode = response.getcode()
-        if(rescode==200):
-            response_body = response.read()
-            with open(tmpPlayPath, 'wb') as f:
-                f.write(response_body)
-
-            #외부 프로그램 사용 playsound or vlc
-            if(os_name.find('Darwin') >= 0):
-                playsound(tmpPlayPath)  # For OSX
-            else:
-                os.system('cvlc ' + tmpPlayPath + ' --play-and-exit') # For Linux
-
-
-            #라즈베리파이
-            #os.system('omxplayer ' + tmpPlayPath)
-        else:
-            print("Error Code:" + rescode)
 
 
 def main():
