@@ -21,8 +21,28 @@ if(os_name.find('Darwin') >= 0):
     from playsound import playsound  # For OSX
 #------------------
 
+
+#----------------------------------------------------------
+#   다음의 변수를 세팅해야 함:
+#    doc폴더에 있는 naver_tts_key.pdf (암호 필요)를 열면 아래 정보가 나와 있음
+#
+# client_id = "xxxxxxxxxxx"
+# client_secret = "yyyyyyyyyyyyyy"
+#----------------------------------------------------------
+
+# ---------------------------------------------------------
+#    Naver Cloud Platform (https://console.ncloud.com)
+#       최종석 개인용
 client_id = "eyrxb9rg98"
 client_secret = "DK9FvMgRTGBYu1IYLYMpUCniGoku8iaQ5e7bHi1D"
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+#    Naver Cloud Platform (https://console.ncloud.com)
+#       sHRI Lab 공용
+client_id = "wdkz6cincl"
+client_secret = "LZ3N99fb48HsAKoIQ6jExrcyvBiV1fXYOc9Fbgrk"
+# ---------------------------------------------------------
 
 
 url = "https://naveropenapi.apigw.ntruss.com/voice/v1/tts"
