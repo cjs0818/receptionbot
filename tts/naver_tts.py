@@ -24,7 +24,7 @@ if(os_name.find('Darwin') >= 0):
 
 #----------------------------------------------------------
 #   다음의 변수를 세팅해야 함:
-#    doc폴더에 있는 naver_tts_key.pdf (암호 필요)를 열면 아래 정보가 나와 있음
+#    doc폴더에 있는 google_naver_key.pdf (암호 필요)를 열면 아래 정보가 나와 있음
 #
 # client_id = "xxxxxxxxxxx"
 # client_secret = "yyyyyyyyyyyyyy"

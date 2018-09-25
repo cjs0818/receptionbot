@@ -13,16 +13,16 @@ _ _ _
 
 ### 1. Google Cloud 프로젝트 생성하기
 참조1: [https://cloud.google.com/speech](https://cloud.google.com/speech)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 ### 2. Google Cloud Speech API 추가
-참조1: [https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com](http://https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조1: [https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 
 ### 3. Google Cloud SDK 설치
 참조1: [https://cloud.google.com/sdk/?hl=ko](https://cloud.google.com/sdk/?hl=ko)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 #### 3.1 Mac OS X
 - 적정한 곳에 아래와 같이 GoogleCloudSDK 폴더 생성 및 해당 폴더로 이동한다.
