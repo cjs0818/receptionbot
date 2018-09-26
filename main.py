@@ -3,10 +3,14 @@
 import json
 import time
 
+#-------------------------------------------------------------
+# chatbot/danbee.py  for Danbee.ai chatbot platform
+# tts/naver_tts.py   for NaverTTS
+# stt/gspeech.py     for Google Cloud Speech
 from chatbot.danbee import Danbee   # Chatbot platform: Danbee.ai
 from tts.naver_tts import NaverTTS  # TTS: NaverTTS
 from stt.gspeech import Gspeech     # STT: Google Cloud Speech
-
+#-------------------------------------------------------------
 
 
 def speech_ui(stt_enable=1, tts_enable=1):
