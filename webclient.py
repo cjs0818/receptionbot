@@ -525,8 +525,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 1  # 0: Disable speech recognition (STT), 1: Enable it
-    tts_enable = 1  # 0: Disable speech synthesis (TTS),   1: Enable it
+    stt_enable = 0  # 0: Disable speech recognition (STT), 1: Enable it
+    tts_enable = 0  # 0: Disable speech synthesis (TTS),   1: Enable it
 
     speech_ui(stt_enable, tts_enable)
     #web_request()

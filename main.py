@@ -3,10 +3,14 @@
 import json
 import time
 
+#-------------------------------------------------------------
+# chatbot/danbee.py  for Danbee.ai chatbot platform
+# tts/naver_tts.py   for NaverTTS
+# stt/gspeech.py     for Google Cloud Speech
 from chatbot.danbee import Danbee   # Chatbot platform: Danbee.ai
 from tts.naver_tts import NaverTTS  # TTS: NaverTTS
 from stt.gspeech import Gspeech     # STT: Google Cloud Speech
-
+#-------------------------------------------------------------
 
 
 def speech_ui(stt_enable=1, tts_enable=1):
@@ -34,7 +38,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
         # 음성인식 아닌 경우, 테스트 query에 대해 문장 단위로 테스트
         query = ["안녕",
                  "사람이요",
-                 "최종석 박사님이요",
+                 "최종석 박사님을 만나러 왔어요",
                  "아나스타샤를 찾으러 왔어요",
                  "홍길동님을 찾으러 왔어요",
                  "여진구 박사님이요",
@@ -98,6 +102,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
             # -------------------------------
 
 
+
             try:
                 name1 = res['responseSet']['result']['parameters']['person_to_visit']
             except Exception as e:
@@ -127,7 +132,7 @@ def speech_ui(stt_enable=1, tts_enable=1):
                     # getting information of person(name) from database
                     # ------------------------
                     kind_of_guide = 'person'
-                    db = get_datatbase(kind_of_guide)
+                    db = chat.get_datatbase(kind_of_guide)
                     # json_data = json.dumps(db, indent=4, ensure_ascii=False)
 
                     print('============= print from internal process ==================')
@@ -198,8 +203,8 @@ def speech_ui(stt_enable=1, tts_enable=1):
 #----------------------------------------------------
 if __name__ == '__main__':
 
-    stt_enable = 1  # 0: Disable speech recognition (STT), 1: Enable it
-    tts_enable = 1  # 0: Disable speech synthesis (TTS),   1: Enable it
+    stt_enable = 0  # 0: Disable speech recognition (STT), 1: Enable it
+    tts_enable = 0  # 0: Disable speech synthesis (TTS),   1: Enable it
 
     speech_ui(stt_enable, tts_enable)
     #web_request()

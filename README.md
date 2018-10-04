@@ -1,28 +1,28 @@
 # ReceptionBot
 
 
-## 필요한 것들 (Required Packages)
 
-##### I. Google STT
-##### II. Naver TTS
+[TOC]
+
 
 _ _ _
 
 
 ## I. Google STT
+참조: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 ### 1. Google Cloud 프로젝트 생성하기
 참조1: [https://cloud.google.com/speech](https://cloud.google.com/speech)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 ### 2. Google Cloud Speech API 추가
-참조1: [https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com](http://https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조1: [https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 
 ### 3. Google Cloud SDK 설치
 참조1: [https://cloud.google.com/sdk/?hl=ko](https://cloud.google.com/sdk/?hl=ko)
-참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조2: [http://jeongchul.tistory.com/544](http://jeongchul.tistory.com/544)
 
 #### 3.1 Mac OS X
 - 적정한 곳에 아래와 같이 GoogleCloudSDK 폴더 생성 및 해당 폴더로 이동한다.
@@ -73,12 +73,11 @@ $ gcloud init
 
 
 ### 4. Google Cloud Service Account Key 생성
-참조1: [https://cloud.google.com/iam/docs/creating-managing-service-account-keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
-참조2: 참조2: [http://jeongchul.tistory.com/544](http://http://jeongchul.tistory.com/544)
+참조: [https://cloud.google.com/iam/docs/creating-managing-service-account-keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
 
 - json 파일 생성
-- Google Cloud Platform 외부, 즉 다른 플랫폼이나 온프레미스에서 서비스 계정을 사용하려면 서비스 계정의 신원을 입증해 합니다. 공개 키/비공개 키 쌍이 여기에 사용됩니다.
-- 아래 예에서 SA-NAME은 서비스 계정의 이름이고 PROJECT-ID는 Google Cloud Platform 프로젝트의 ID입니다. Google Cloud Platform 콘솔의 서비스 계정 페이지에서 SA-NAME@PROJECT-ID.iam.gserviceaccount.com 문자열을 검색할 수 있습니다.
+- Google Cloud Platform 외부, 즉 다른 플랫폼이나 온프레미스에서 서비스 계정을 사용하려면 서비스 계정의 신원을 입증해야 함. 공개 키/비공개 키 쌍이 여기에 사용됨.
+- 아래 예에서 SA-NAME은 서비스 계정의 이름이고 PROJECT-ID는 Google Cloud Platform 프로젝트의 ID임. Google Cloud Platform 콘솔의 서비스 계정 페이지에서 SA-NAME@PROJECT-ID.iam.gserviceaccount.com 문자열을 검색할 수 있음.
 ```
 #------------------------------------------------------
 #$ gcloud iam service-accounts keys create ~/key.json \
@@ -89,7 +88,7 @@ $ gcloud init
 $ sudo gcloud iam service-accounts keys create ~/jschoi_gcloud_service_accounts_key.json --iam-account jschoi@chatbot-215901.iam.gserviceaccount.com
 ```
 
-- 테스트를 위해 sync-request.json 파일을 만든다
+- 테스트를 위해 sync-request.json 파일 생성
 - Google Auth Library 액세스 허용
 ```
 $ vi sync-request.json
@@ -109,7 +108,7 @@ $ vi sync-request.json
 ```
 $ sudo gcloud auth application-default login
 ```
-- 이후에 application_default_credentials.json이 저장된 경로를 복사하여 export 합니다.
+- 이후에 application_default_credentials.json이 저장된 경로를 복사하여 export 함.
 ```
 $ export GOOGLE_APPLICATION_CREDENTIALS=~/.config/gcloud/application_default_credentials.json   #  필자와 경로가 다를 수 있으니 주의
 $ sudo chown -R $(whoami) ~/.config/gcloud/application_default_credentials.json
@@ -142,14 +141,14 @@ $ curl -s -H "Content-Type: application/json" -H "Authorization: Bearer access_t
 }
 ```
 
-## 5. portaudio19 설치
+### 5. portaudio19 설치
 
-### Linux Ubuntu
+#### Linux Ubuntu
 ```
 $ apt-get install portaudio19-dev
 ```
 
-### Mac OS X
+#### Mac OS X
 [http://portaudio.com/docs/v19-doxydocs/compile_mac_coreaudio.html](http://portaudio.com/docs/v19-doxydocs/compile_mac_coreaudio.html)
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
@@ -172,7 +171,7 @@ _ _ _
 
 
 
-## III. Source 코드
+## III. Source Codes
 ```
 $ git clone https://github.com/cjs0818/receptionbot.git
 $ cd receptionbot
@@ -191,7 +190,7 @@ $ python3 install -r requirements.txt   # OSX에 맞게 선택 OSX: requirements
 ```
 ### Run 
 ```
-$ python3 webclient.py
+$ python3 main.py
 ```
 
 _ _ _
@@ -211,17 +210,17 @@ _ _ _
   $ cd tts
   $ python3 naver_tts.py
 
-```
+  ```
 #### 음성인식
 
 
-## Architectrue
+## IV. Architectrue
 
 There are several options.
 
 1. User Web API as a Client 
 |     | Client | Server1 | Server2 |
-|-----|--------|--------|--------|
+|-----|--------|-------- |---------|
 | **1.1** | User Web Client   |  Chatbot (Danbee) | Heroku App. w/ CSV file  |
 | **1.2** | User Web Client w/ CSV file   |  Chatbot (Danbee) |  |
 
